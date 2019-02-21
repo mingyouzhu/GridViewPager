@@ -3,5 +3,5 @@
 
 
 dependencies {
-	        implementation 'com.github.mingyouzhu:GridViewPager:Tag'
+	        implementation 'com.github.mingyouzhu:GridViewPager:1.1'
 	}
