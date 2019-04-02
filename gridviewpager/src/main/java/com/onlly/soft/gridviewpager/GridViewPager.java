@@ -65,7 +65,7 @@ public class GridViewPager<ResType> extends RelativeLayout{
         mData = list;
         //总的页数=总数/每页数量，并取整
         pageCount = (int) Math.ceil(mData.size() * 1.0 / pageSize);
-        mPagerList = new ArrayList<GridView>();
+        mPagerList = new ArrayList<>();
         for (int i = 0; i < pageCount; i++) {
             //每个页面都是inflate出一个新实例
             GridView gridView = (GridView) inflater.inflate(R.layout.gridview, mPager, false);
