@@ -2,12 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="#D4D3D3"
               android:orientation="vertical">
 
     <com.onlly.soft.gridviewpager.GridViewPager
             android:id="@+id/mGridViewPager"
             android:layout_height="180dp"
             android:background="#FFFFFF"
-            android:layout_width="match_parent" />
+            android:layout_width="match_parent"/>
+
+    <Button
+            android:id="@+id/btn_init"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reset"/>
 </LinearLayout>

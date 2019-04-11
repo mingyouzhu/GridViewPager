@@ -1,50 +1,49 @@
 package com.onlly.soft.gridviewpager_android
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
+import com.bumptech.glide.Glide
+import com.onlly.soft.gridviewpager.GridViewPager
+import com.onlly.soft.gridviewpager.ImageLoader
+import com.onlly.soft.gridviewpager.Model
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
-
-    private val titles = arrayOf(
-        "美食",
-        "电影",
-        "酒店住宿",
-        "休闲娱乐",
-        "外卖",
-        "自助餐",
-        "KTV",
-        "机票/火车票",
-        "周边游",
-        "美甲美睫",
-        "火锅",
-        "生日蛋糕",
-        "甜品饮品",
-        "水上乐园",
-        "汽车服务",
-        "美发",
-        "丽人",
-        "景点",
-        "足疗按摩",
-        "运动健身",
-        "健身",
-        "超市",
-        "买菜",
-        "今日新单",
-        "小吃快餐",
-        "面膜",
-        "洗浴/汗蒸",
-        "母婴亲子",
-        "生活服务",
-        "婚纱摄影",
-        "学习培训",
-        "家装",
-        "结婚",
-        "全部分配"
-    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        btn_init.setOnClickListener { init() }
+    }
+
+    private fun init() {
+        val domain = "http://www.520mj.net:800"
+        val models: ArrayList<Model<String>> = ArrayList()
+        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        val gridNine = findViewById<GridViewPager<String>>(R.id.mGridViewPager)
+        gridNine.setImageLoader(object:ImageLoader<String>{
+            override fun load(context: Context, icon: String, imageView: ImageView) {
+                Glide.with(context)
+                    .load(icon)
+                    .override(120,120)
+                    .into(imageView)
+            }
+        })
+        gridNine.pageSize = 7
+        gridNine.init(models)
     }
 }
