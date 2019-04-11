@@ -22,17 +22,17 @@ class MainActivity : AppCompatActivity() {
     private fun init() {
         val domain = "http://www.520mj.net:800"
         val models: ArrayList<Model<String>> = ArrayList()
-        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
-        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
-        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
-        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
-        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
-        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
-        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
-        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
-        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
-        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
-        models.add(Model<String>("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
+        models.add(Model("图片1", "描述1", "$domain/StaticFiles/GridNineImages/4d142d608e474b00a7e252036a8ed12b.png"))
         val gridNine = findViewById<GridViewPager<String>>(R.id.mGridViewPager)
         gridNine.setImageLoader(object:ImageLoader<String>{
             override fun load(context: Context, icon: String, imageView: ImageView) {
