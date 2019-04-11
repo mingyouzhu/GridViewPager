@@ -15,6 +15,7 @@ public class GridViewAdapter<ResType> extends BaseAdapter {
     private List<Model<ResType>> mData;
     private LayoutInflater inflater;
     private ImageLoader<ResType> mImageLoader;
+
     /**
      * 页数下标,从0开始(当前是第几页)
      */

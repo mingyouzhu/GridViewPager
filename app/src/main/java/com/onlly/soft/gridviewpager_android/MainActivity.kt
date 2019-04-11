@@ -9,7 +9,6 @@ import com.onlly.soft.gridviewpager.GridViewPager
 import com.onlly.soft.gridviewpager.ImageLoader
 import com.onlly.soft.gridviewpager.Model
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
