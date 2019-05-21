@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="_GridViewPager">
+        <attr name="showIndicator" format="boolean"/>
+        <attr name="numColumns" format="integer"/>
+        <attr name="pageSize" format="integer"/>
+    </declare-styleable>
+</resources>

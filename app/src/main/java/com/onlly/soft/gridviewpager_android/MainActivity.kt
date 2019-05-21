@@ -1,6 +1,7 @@
 package com.onlly.soft.gridviewpager_android
 
 import android.content.Context
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -42,7 +43,6 @@ class MainActivity : AppCompatActivity() {
                     .into(imageView)
             }
         })
-        gridNine.pageSize = 7
         gridNine.init(models)
     }
 }

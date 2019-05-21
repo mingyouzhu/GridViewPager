@@ -1,6 +1,7 @@
 package com.onlly.soft.gridviewpager;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -35,29 +36,48 @@ public class GridViewPager<ResType> extends RelativeLayout{
     // 当前显示的是第几页
     private int curIndex = 0;
 
+    private int mNumColumns = 4;
+    private boolean mShowIndicator = true;
+
     public GridViewPager(Context context) {
         super(context);
         mContext = context;
-        initView();
+        initView(context,null);
     }
 
     public GridViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
-        initView();
+        initView(context,attrs);
     }
 
     public GridViewPager(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mContext = context;
-        initView();
+        initView(context,attrs);
     }
 
-    private void initView() {
-        inflater = LayoutInflater.from(mContext);
+    private void initView(Context context,AttributeSet attrs) {
+        if(attrs != null){
+            TypedArray typedArray = context.obtainStyledAttributes(attrs,R.styleable._GridViewPager);
+            mShowIndicator = typedArray.getBoolean(R.styleable._GridViewPager_showIndicator,mShowIndicator);
+            mNumColumns = typedArray.getInteger(R.styleable._GridViewPager_numColumns,mNumColumns);
+            pageSize = typedArray.getInteger(R.styleable._GridViewPager_pageSize,pageSize);
+            typedArray.recycle();
+        }
+        inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.view, this);
         mPager = view.findViewById(R.id.viewpager);
         mLlDot = view.findViewById(R.id.ll_dot);
+        mLlDot.setVisibility(mShowIndicator ? VISIBLE : GONE);
+    }
+
+    public void setNumColumns(int num){
+        mNumColumns = num;
+    }
+
+    public void setShowIndicator(boolean show){
+        mShowIndicator = show;
     }
 
     // 必须作为最后一步
@@ -73,7 +93,7 @@ public class GridViewPager<ResType> extends RelativeLayout{
             adapter.setImageLoader(mImageLoader);
             gridView.setAdapter(adapter);
             mPagerList.add(gridView);
-
+            gridView.setNumColumns(mNumColumns);
             gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
