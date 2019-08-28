@@ -36,8 +36,17 @@ public class GridViewPager<ResType> extends RelativeLayout{
     // 当前显示的是第几页
     private int curIndex = 0;
 
+    // 列个数
     private int mNumColumns = 4;
+
+    // 是否显示指标
     private boolean mShowIndicator = true;
+
+    // 子项顶部内边距
+    private int mItemPaddingTop;
+
+    // 子项底部内边距
+    private int mItemPaddingBottom;
 
     public GridViewPager(Context context) {
         super(context);
@@ -63,6 +72,8 @@ public class GridViewPager<ResType> extends RelativeLayout{
             mShowIndicator = typedArray.getBoolean(R.styleable._GridViewPager_showIndicator,mShowIndicator);
             mNumColumns = typedArray.getInteger(R.styleable._GridViewPager_numColumns,mNumColumns);
             pageSize = typedArray.getInteger(R.styleable._GridViewPager_pageSize,pageSize);
+            mItemPaddingTop = typedArray.getInteger(R.styleable._GridViewPager_itemPaddingTop,mItemPaddingTop);
+            mItemPaddingBottom = typedArray.getInteger(R.styleable._GridViewPager_itemPaddingBottom,mItemPaddingBottom);
             typedArray.recycle();
         }
         inflater = LayoutInflater.from(context);
@@ -80,6 +91,10 @@ public class GridViewPager<ResType> extends RelativeLayout{
         mShowIndicator = show;
     }
 
+    public void setItemPaddingTop(int paddingTop){ mItemPaddingTop = paddingTop; }
+
+    public void setItemPaddingBottom(int paddingBottom){ mItemPaddingBottom = paddingBottom; }
+
     // 必须作为最后一步
     public GridViewPager init(List<Model<ResType>> list) {
         mData = list;
@@ -89,7 +104,7 @@ public class GridViewPager<ResType> extends RelativeLayout{
         for (int i = 0; i < pageCount; i++) {
             //每个页面都是inflate出一个新实例
             GridView gridView = (GridView) inflater.inflate(R.layout.gridview, mPager, false);
-            GridViewAdapter<ResType> adapter = new GridViewAdapter(mContext, mData, i, pageSize);
+            GridViewAdapter<ResType> adapter = new GridViewAdapter(mContext, mData, i, pageSize,mItemPaddingTop,mItemPaddingBottom);
             adapter.setImageLoader(mImageLoader);
             gridView.setAdapter(adapter);
             mPagerList.add(gridView);
@@ -148,12 +163,8 @@ public class GridViewPager<ResType> extends RelativeLayout{
                 view.setBackgroundResource(R.drawable.dot_selected);
                 curIndex = position;
             }
-
-            public void onPageScrolled(int arg0, float arg1, int arg2) {
-            }
-
-            public void onPageScrollStateChanged(int arg0) {
-            }
+            public void onPageScrolled(int arg0, float arg1, int arg2) { }
+            public void onPageScrollStateChanged(int arg0) { }
         });
     }
 
@@ -179,12 +190,12 @@ public class GridViewPager<ResType> extends RelativeLayout{
         return pageSize;
     }
 
-    public GridViewPager setPageSize(int pageSize) {
+    public GridViewPager setPageSize(int pageSize){
         this.pageSize = pageSize;
         return this;
     }
 
-    public int getCurIndex() {
+    public int getCurIndex(){
         return curIndex;
     }
 

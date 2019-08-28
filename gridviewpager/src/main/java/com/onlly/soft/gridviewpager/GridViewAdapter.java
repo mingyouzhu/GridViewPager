@@ -25,12 +25,16 @@ public class GridViewAdapter<ResType> extends BaseAdapter {
      */
     private int pageSize;
 
-    public GridViewAdapter(Context context, List<Model<ResType>> mData, int curIndex, int pageSize) {
+    private int itemPaddingTop = 0,itemPaddingBottom = 0;
+
+    public GridViewAdapter(Context context, List<Model<ResType>> mData, int curIndex, int pageSize,int itemPaddingTop,int itemPaddingBottom) {
         mContext = context;
         inflater = LayoutInflater.from(context);
         this.mData = mData;
         this.curIndex = curIndex;
         this.pageSize = pageSize;
+        this.itemPaddingTop = itemPaddingTop;
+        this.itemPaddingBottom = itemPaddingBottom;
     }
 
     /**
@@ -63,6 +67,7 @@ public class GridViewAdapter<ResType> extends BaseAdapter {
             viewHolder.tvTitle = convertView.findViewById(R.id.tvTitle);
             viewHolder.tvDescription = convertView.findViewById(R.id.tvDesc);
             viewHolder.ivHead = convertView.findViewById(R.id.ivHead);
+            convertView.setPadding(0,itemPaddingTop,0,itemPaddingBottom);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();

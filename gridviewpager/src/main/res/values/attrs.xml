@@ -4,5 +4,7 @@
         <attr name="showIndicator" format="boolean"/>
         <attr name="numColumns" format="integer"/>
         <attr name="pageSize" format="integer"/>
+        <attr name="itemPaddingTop" format="integer"/>
+        <attr name="itemPaddingBottom" format="integer"/>
     </declare-styleable>
 </resources>
