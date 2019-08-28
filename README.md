@@ -9,6 +9,7 @@ dependencies {
 ```
 
 # 布局文件 activity_main.xml
+```
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -28,8 +29,10 @@ dependencies {
             app:itemPaddingBottom="5"/>
 
 </LinearLayout>
+```
 
 # MainActivity.kt
+```
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,3 +58,4 @@ class MainActivity : AppCompatActivity() {
         gridNine.init(models)
     }
 }
+```
